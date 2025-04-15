@@ -1,0 +1,43 @@
+<div class="min-h-screen bg-gray-50 border border-gray-200">
+  <nav class="bg-white shadow">
+     <div class="flex justify-between h-16 px-5">
+        <div class="flex">
+          <div class="flex-shrink-0 flex items-center">
+            <h1 class="text-xl font-bold text-indigo-600">Geo App</h1>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+              <%= current_user.email %>
+            </span>
+          </div>
+          <div class="ml-4">
+            <%= button_to "Logout", logout_path, method: :delete, class: button_classes %>
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  <main class="py-10 px-5">
+    <div class="bg-white shadow rounded-lg">
+      <div class="px-4 py-5 sm:px-6">
+        <h2 class="text-lg leading-6 font-medium text-gray-900">
+          User Profile
+        </h2>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          Location details.
+        </p>
+      </div>
+      <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+        <dl class="sm:divide-y sm:divide-gray-200">
+          <%= render "users/list_item", label: "Street", value: current_user.location.street %>
+          <%= render "users/list_item", label: "City", value: current_user.location.city %>
+          <%= render "users/list_item", label: "ZIP Code", value: current_user.location.zip %>
+          <%= render "users/list_item", label: "Latitude", value: current_user.location.latitude %>
+          <%= render "users/list_item", label: "Longitude", value: current_user.location.longitude %>
+        </dl>
+      </div>
+    </div>
+  </main>
+</div>

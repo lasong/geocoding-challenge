@@ -1,0 +1,12 @@
+<div>
+  <%= form.label field_name, field_name.to_s.humanize, class: "block text-sm font-medium text-gray-700" %>
+  <div class="mt-1">
+    <% if field_type == 'email' %>
+      <%= form.email_field field_name, class: input_classes %>
+    <% elsif field_type == 'password' %>
+      <%= form.password_field field_name, class: input_classes %>
+    <% else %>
+      <%= form.text_field field_name, class: input_classes %>
+    <% end %>
+  </div>
+</div>
